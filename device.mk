@@ -24,7 +24,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
-	frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml
+    frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml
 
 # Custom mixer_paths
 PRODUCT_COPY_FILES += \
@@ -43,32 +43,31 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
-# Bluetooth
+# Bluetooth hal
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-service-qti.j7y17lte \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service
+
+# Bluetooth audio
+PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.0-impl \
     audio.bluetooth.default
 
-# A2DP
-PRODUCT_PACKAGES += \
-  audio.a2dp.default \
-  android.hardware.bluetooth.a2dp@1.0-impl \
-  android.hardware.bluetooth.a2dp@1.0-service
-    libbt-vendor
-
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/bluetooth/bt_vendor.conf:vendor/etc/bluetooth/bt_vendor.conf
-
-# Tests
-PRODUCT_PACKAGES_ENG += \
-  QSensorTest
-
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.samsung
+    android.hardware.biometrics.fingerprint@2.1 \
+    android.hardware.biometrics.common \
+    android.hardware.biometrics.face@1.0
 
+# Fingerprint Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
+
+# GPS configs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps/gps_debug.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    $(LOCAL_PATH)/configs/gps/gps_debug.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps_debug.conf \
+    $(LOCAL_PATH)/configs/gps/gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gps.xml
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -76,7 +75,9 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     libnfc_nci_jni \
     NfcNci \
-    Tag
+    Tag \
+    com.android.nfc_extras \
+    android.hardware.nfc@1.2.vendor
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -98,7 +99,7 @@ PRODUCT_PACKAGES += \
     libantradio
 
 PRODUCT_COPY_FILES += \
-    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
+    device/samsung/universal7870-common/local-modules/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -106,13 +107,24 @@ PRODUCT_PACKAGES += \
     hostapd \
     libwifi-hal \
     libwpa_client \
-    WifiOverlay \
     wificond \
     wifiloader \
     wifilogd \
     wlutil \
     wpa_supplicant \
     wpa_supplicant.conf
+
+#hostpad
+PRODUCT_PACKAGES += \
+    android.hardware.wifi.hostapd@1.0
+
+#wifi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.4
+
+#supplicant
+PRODUCT_PACKAGES += \
+    android.hardware.wifi.supplicant@1.3
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
