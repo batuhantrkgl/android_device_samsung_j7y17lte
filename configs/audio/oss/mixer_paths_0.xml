@@ -1,5 +1,4 @@
 <mixer>
-	<!-- <include name="/vendor/etc/mixer_gains.xml" /> -->
 	
 	<pcmdai playback_link="7" />
 	<pcmdai playback_jam_link="8" />
