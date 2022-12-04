@@ -213,13 +213,13 @@
         <fqname>@2.0::ISehChannel/epdgd2</fqname>
         <fqname>@2.0::ISehChannel/imsd</fqname>
         <fqname>@2.0::ISehChannel/imsd2</fqname>
-    </hal>
+     </hal>
      <hal format="hidl" override="true">
       <name>vendor.samsung.hardware.radio.bridge</name>
       <transport>hwbinder</transport>
       <fqname>@2.0::ISehBridge/slot1</fqname>
       <fqname>@2.0::ISehBridge/slot2</fqname>
-   </hal>
+    </hal>
     <hal format="hidl" override="true">
         <name>android.hardware.radio.deprecated</name>
         <transport>hwbinder</transport>
@@ -260,7 +260,7 @@
             <instance>default</instance>
         </interface>
     </hal>
- <hal format="hidl">
+    <hal format="hidl">
         <name>vendor.lineage.livedisplay</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
@@ -306,9 +306,9 @@
         <fqname>@1.1::IGnss/default</fqname>
         <fqname>@2.0::IGnss/default</fqname>
     </hal>
-   <hal format="hidl">
+    <hal format="hidl">
       <name>vendor.samsung.hardware.gnss</name>
       <transport>hwbinder</transport>
       <fqname>@2.0::ISehGnss/default</fqname>
-   </hal>
+    </hal>
 </manifest>
