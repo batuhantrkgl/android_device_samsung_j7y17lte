@@ -116,4 +116,3 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
 ############################
 
 PB_TORCH_PATH := "sys/devices/virtual/camera/flash/rear_flash"
-PB_TORCH_MAX_BRIGHTNESS := 1
