@@ -45,8 +45,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl.7870 \
-    android.hardware.bluetooth@1.0-service \
+    android.hardware.bluetooth@1.0-service-qti.j7y17lte \
     android.hardware.bluetooth.audio@2.0-impl \
     audio.bluetooth.default
 
