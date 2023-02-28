@@ -31,6 +31,9 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 # Kernel
 TARGET_KERNEL_CONFIG := exynos7870-j7y17lte_defconfig
 
+# Retrofit
+ro.boot.dynamic_partitions_retrofit=true
+
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
 
