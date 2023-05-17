@@ -45,8 +45,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 # Bluetooth hal
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service
+    android.hardware.bluetooth@1.0-service-qti.a3y17lte
 
 # Bluetooth audio
 PRODUCT_PACKAGES += \
